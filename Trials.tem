@@ -1,0 +1,109 @@
+
+#Start Trial
+trial {
+	trial_type = fixed;
+	stimulus_event {		
+		picture{
+			background_color=255,232,232; 
+			box ResponseBox; x = 0; y = 0;
+			text ResponseText; x = 0; y = 0;
+			text NameText; x = 0; y = 250; 
+			text Enter; x=0; y=-200; 
+		}StartPicture;
+	}StartEvent;
+}StartTrial;
+
+
+#Introduction Trial
+
+trial{
+	trial_duration = forever;
+	trial_type = first_response; 
+	stimulus_event{
+		picture{ 
+			bitmap Intro1; x=0; y=0; 
+		}intro_pic;  
+	}introEvent;
+}intro; 
+
+
+#Main Trial 
+
+trial{
+	trial_duration = 1000;
+	stimulus_event{ 
+		picture{
+			background_color=255,232,232;
+			bitmap V1; x=-700; y=300; 
+			bitmap V2; x=-250; y=300; 
+			bitmap V3; x=250; y=300; 
+			bitmap V4; x=700; y=300;  
+			bitmap T1; x=0; y=-300; 
+		}VB; time=0; 
+	}MainEvent; 
+}MainTrial; 
+
+
+#Feedback 1: INCORRECT
+
+trial{
+	trial_duration = 200;
+	stimulus_event{
+		picture{ 
+			background_color=255,17,0; 
+			text{ 
+				background_color=255,17,0; 
+				caption= "INCORRECT!"; 
+				max_text_width=1900;
+				max_text_height=1000; 
+				font_color=0,0,0; 
+				font_size=120; 
+				text_align=align_center; 
+			}fbw; 
+			x=0; y=0; 
+		}FBWp;  
+	}FBWe;
+}feedbackwrong; 
+
+#Feedback 2: CORRECT
+
+trial{
+	trial_duration = 200;
+	stimulus_event{
+		picture{ 
+			background_color=0,176,24; 
+			text{ 
+				background_color=0,176,24;
+				caption= "CORRECT!"; 
+				max_text_width=1900;
+				max_text_height=1000; 
+				font_color=0,0,0; 
+				font_size=120; 
+				text_align=align_center; 
+			}fbc; 
+			x=0; y=0; 
+		}FBCp;  
+	}FBCe;
+}feedbackcorrect; 
+
+#End screen
+
+trial{
+	trial_duration = 200;
+	stimulus_event{
+		picture{ 
+			background_color=0,0,0; 
+			text{ 
+				background_color=0,0,0;
+				caption= "Thank you for participating!"; 
+				max_text_width=1900;
+				max_text_height=1000; 
+				font_color=192,192,192; 
+				font_size=120; 
+				text_align=align_center; 
+			}EndText; 
+			x=0; y=0; 
+		}EndPicture;  
+	}EndEvent;
+}EndTrial; 
+

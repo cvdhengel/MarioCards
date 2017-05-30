@@ -1,0 +1,14 @@
+StartTrial.present(); 
+
+	string Name = system_keyboard.get_input(StartPicture,ResponseText);
+
+	output.print(Name);output.print("\n");
+
+StartPicture.set_part(3, YearText); 
+
+StartTrial.present(); 
+
+	string Age = system_keyboard.get_input(StartPicture,ResponseText);
+
+	output.print(Age);output.print("\n");
+	
