@@ -40,8 +40,9 @@
 <filename>C:\Users\User\Desktop\Mario\MarioPCL.pcl</filename>
 <filename>C:\Users\User\Desktop\Mario\Trials.tem</filename>
 <filename>C:\Users\User\Desktop\Mario\Bitmaps.tem</filename>
-<filename>C:\Users\User\Desktop\Mario\Mario_v8.sce</filename>
-<filename>C:\Users\User\Desktop\Mario\Start trial.sce</filename>
+<filename>C:\Users\User\Desktop\Mario\MarioCards.sce</filename>
+<filename>C:\Users\User\Desktop\Mario\ResponseManagement.pcl</filename>
+<filename>C:\Users\User\Desktop\Mario\TotalOutput.pcl</filename>
 </efs>
 <exclusive_mouse>1</exclusive_mouse>
 <exp_version></exp_version>
@@ -73,7 +74,7 @@
 <pass></pass>
 <ssa>
 <asn>
-<sid>-2</sid>
+<sid>-1</sid>
 </asn>
 </ssa>
 </man>
@@ -399,7 +400,7 @@
 <offset>57</offset>
 </idv>
 <overrides></overrides>
-<sfn>C:\Users\User\Desktop\Mario\Mario_v8.sce</sfn>
+<sfn>C:\Users\User\Desktop\Mario\MarioCards.sce</sfn>
 </sce>
 <sct>
 <capture_device>

@@ -1,0 +1,26 @@
+###########################################################################################
+##########################Response data & output###########################################
+###########################################################################################
+response_data Rdata; 
+output_file output = new output_file;
+string ParticipantNumber = logfile.subject(); 
+
+StartTrial.present(); 
+
+string Name = system_keyboard.get_input(StartPicture,ResponseText);
+
+StartPicture.set_part(3, YearText); 
+
+StartTrial.present(); 
+
+string Age = system_keyboard.get_input(StartPicture,ResponseText);
+
+if ParticipantNumber.count() > 0 then output.open (ParticipantNumber +"_"+ Name +"_"+ Age + "_MarioCards.txt"); 
+else output.open( Name+"_"+Age+"_"+"MarioCards.txt"); end; 
+output.print( "Date/Time: " + date_time("dd mmmm yyyy' 't")+"\n\n\n");
+output.print("Name:\t"); output.print(Name);output.print("\n");
+output.print("Age:\t"); output.print(Age);output.print("\n\n");
+	
+###########################################################################################
+###########################################################################################
+###########################################################################################

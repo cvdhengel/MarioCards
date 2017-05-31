@@ -47,7 +47,7 @@ trial{
 #Feedback 1: INCORRECT
 
 trial{
-	trial_duration = 200;
+	trial_duration = 1000;
 	stimulus_event{
 		picture{ 
 			background_color=255,17,0; 
@@ -68,7 +68,7 @@ trial{
 #Feedback 2: CORRECT
 
 trial{
-	trial_duration = 200;
+	trial_duration = 1000;
 	stimulus_event{
 		picture{ 
 			background_color=0,176,24; 
@@ -89,7 +89,7 @@ trial{
 #End screen
 
 trial{
-	trial_duration = 200;
+	trial_duration = 50000;
 	stimulus_event{
 		picture{ 
 			background_color=0,0,0; 

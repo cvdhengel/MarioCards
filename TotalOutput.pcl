@@ -1,0 +1,9 @@
+
+output.print("\n\n\n"); 
+output.print("Total Amount of Trials:\t\t"); output.print(i); output.print("\n"); 
+output.print("Total Correct:\t\t\t"); output.print(tc); output.print("\n"); 
+output.print("Total Errors:\t\t\t"); output.print(tf); output.print("\n"); 
+output.print("Percentage Correct:\t\t"); output.print(tc/i*100); output.print("%\n"); 
+output.print("Percentage Errors:\t\t"); output.print(tf/i*100); output.print("%\n"); 
+output.print("Total Perseverations:\t\t"); output.print(p); output.print("\n"); 
+output.print("Total Non-perseverations:\t"); output.print(np); output.print("\n"); 

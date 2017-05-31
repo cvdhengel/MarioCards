@@ -1,14 +1,3 @@
-#Response data & output 
-response_data Rdata; 
-output_file output = new output_file;
-string ParticipantNumber = logfile.subject(); 
-if ParticipantNumber.count() > 0 then output.open (ParticipantNumber + "_MarioCards.txt"); 
-else output.open( "999_MarioCards.txt"); end; 
-output.print( "date/time: " + date_time("dd mmmm yyyy' 't")+"\n");
-output.print("Trial\tStimuli\tPrincple\tButton\tSorting\tFeedback\tErrortype\n");
-
-include "Start.pcl"; 
-
 #Show introduction 
 intro.present();
 
@@ -25,13 +14,16 @@ int tc=0; #total correct
 int tf=0; #total incorrect
 int p=0; #perseveration
 int np=0; #nonperseveration
+int s=1;
+int i=1; 
+int hun=100; 
 
+#########################################################################################################################################################
+output.print("Trial\tStimuli\tPressed Button\tSorting\tFeedback\tErrortype\n");
+###Main Trial Loop###
 
-
-#Main Trial Loop 
-loop int i=1 until i > stimuli.count() begin;
-
-	loop int s=1 until s > sort.count() begin;
+loop s until ( s > sort.count() || i > stimuli.count() || tf>2) begin; 
+	
 		VB.set_part(5, stimuli[i]); 
 		MainEvent.set_event_code(stimuli[i].description()); 
 		MainTrial.set_duration(forever); 
@@ -41,7 +33,7 @@ loop int i=1 until i > stimuli.count() begin;
 		output.print(i); 
 		output.print("\t"); 
 		output.print(stimuli[i].description()); 
-		output.print("\t"); 
+		output.print("\t\t"); 
 		
 		response_data respdat = response_manager.last_response_data(); 
 		int BP = respdat.button(); 		
@@ -49,10 +41,10 @@ loop int i=1 until i > stimuli.count() begin;
 		output.print("\t"); 
 		
 		#Matching the cards on the screen
-		if BP == 1 then VB.set_part_x(5,-700); VB.set_part_y(5, 0); end; 
-		if BP == 2 then VB.set_part_x(5,-250); VB.set_part_y(5, 0); end; 
-		if BP == 3 then VB.set_part_x(5,250); VB.set_part_y(5, 0); end; 
-		if BP == 4 then VB.set_part_x(5,700); VB.set_part_y(5, 0); end; 		
+		if BP == 1 then VB.set_part_x(5,-700); VB.set_part_y(5, -200); end; 
+		if BP == 2 then VB.set_part_x(5,-250); VB.set_part_y(5, -200); end; 
+		if BP == 3 then VB.set_part_x(5,250); VB.set_part_y(5, -200); end; 
+		if BP == 4 then VB.set_part_x(5,700); VB.set_part_y(5, -200); end; 		
 		MainTrial.set_duration(1000); 
 		MainTrial.present(); 
 		
@@ -163,24 +155,9 @@ loop int i=1 until i > stimuli.count() begin;
 			tf=tf+1; 
 			end;  
 		end; 
-	#Knowing when to continue or when to end 
-	output.print("\n");
+	output.print("\n"); 
+	if c>5 then s=s+1; c=0; end; #sorting principle changes after 6 correct cards in a row
+	if f>100 then i=stimuli.count(); end; 
 	i=i+1; 
-	if c>5 then s=s+1; c=0; end;   #If 6 cards (in a row) were correct, the participant continues to the next sorting principle without letting know
-	if f>5 then s>sort.count(); i>stimuli.count(); end; #If participant misses 6 in a row, the task will end. 
-	if tc>2 then s>sort.count(); i>stimuli.count(); end; #If all cards are sorted, the task will end. 
-	end; 
-i=i+1; 
-end; 
+end; 	
 
-EndTrial.present(); 
-
-output.print("\n\n\Total Correct\tTotalFalse\tTotalP\tTotalNP\n");
-output.print(tc); 
-output.print("\t"); 
-output.print(tf); 
-output.print("\t"); 
-output.print(p); 
-output.print("\t"); 
-output.print(np); 
-output.print("\t"); 
